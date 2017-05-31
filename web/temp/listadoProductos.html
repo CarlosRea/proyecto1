@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<h3 class="sub-header">Lista de Productos</h3>
+<div class="input-group">
+    <span class="input-group-addon" ><span class="glyphicon glyphicon-align-left" aria-hidden="true"></span> Filtros </span>
+    <input class="form-control col-md-4" placeholder="buscar por nombreProducto" ng-model="search.nombreProducto">
+    <input class="form-control col-md-4" placeholder="buscar por barCodigo" ng-model="search.barCodigo">
+</div>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>nombre </th>
+                <th>codigo</th>
+                <th>capacidad</th>
+                <th>precio compra</th>
+                <th>precio venta</th>
+                <th>precio servicio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="producto in productos | orderBy:'nombre' | filter:search" ng-style="{color:($odd?'red':'green')}">
+                <td>{{producto.nombreProducto}}</td>
+                <td>{{producto.barCodigo}}</td>
+                <td>{{producto.capacidadProducto}}</td>
+                <td>{{producto.precioCompra}}</td>
+                <td>{{producto.precioVenta}}</td>
+                <td>{{producto.precioServicio}}</td>
+                <td>
+                    <button ng-click="borrar(producto.idproducto)">Borrar</button>
+                    <button ><a ng-href="#/editProducto/{{producto.idproducto}}">Editar</a></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Welcome to Spring Web MVC project</title>
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.0/css/smoothness/jquery-ui-1.10.0.custom.min.css" />
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>    
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.js"></script>
+
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-cookies.js"></script>
+        <script src="//code.angularjs.org/1.3.0/i18n/angular-locale_es-es.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="js/clientesResource.js" ></script>
+        <script type="text/javascript" src="js/productosResource.js" ></script>
+        <script type="text/javascript" src="js/ventasResource.js" ></script>
+        <script type="text/javascript" src="js/empleadoResource.js" ></script>
+        <script type="text/javascript" src="js/ordenServicioResource.js" ></script>
+        <script type="text/javascript" src="js/main.js" ></script>
+        <script type="text/javascript" src="js/scripts.js" ></script>
+        <link rel="stylesheet" href="css/styles.css"/>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+        
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-calendar/0.8.0/calendar.js"></script>
+        
+    </head>
+
+    <body ng-app="app" ng-controller="MainController">
+
+        <!-- HEADER AND NAVBAR -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Projecto C</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right" ng-controller="ApCtrl">
+                        <li><a href="#/" ng-click="salir()"><i class="fa fa-comment"></i> Salir</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- MAIN CONTENT AND INJECTED VIEWS -->        
+        <div class="container-fluid">
+            <div class="row row-offcanvas row-offcanvas-left">
+
+                <div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
+
+                    <ul class="nav nav-sidebar " >
+                        <li class="active"><a ng-show="usuario.estaConectado===true" href="#/infoUsuario">Usuario</a></li>
+                        <li ><a ng-show="usuario.estaConectado===true" href="#/infoUsuario">ficha</a></li>
+                        
+                        <li class="nav-header"> <a href="#/listClientes" ng-show="usuario.puesto==='administrador'" data-toggle="collapse" data-target="#clientesMenu">
+                                <h5>Clientes <i class="glyphicon glyphicon-chevron-down"></i></h5>
+                            </a>
+                            <ul class="collapse in" id="clientesMenu" ng-show="usuario.puesto==='administrador'">
+                                <li class="active"> <a href="#/listClientes"><i class="glyphicon glyphicon-list"></i> Lista Clientes</a></li>
+                                <li><a href="#/newCliente"><i class="glyphicon glyphicon-plus"></i> añadir </a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-header"> <a href="#/listEmpleados" ng-show="usuario.puesto==='administrador'" data-toggle="collapse" data-target="#empleadosMenu">
+                                <h5>Empleados <i class="glyphicon glyphicon-chevron-right"></i></h5>
+                            </a>
+                            <ul class="collapse" id="empleadosMenu" ng-show="usuario.puesto==='administrador'">
+                                <li class="active"> <a href="#/listEmpleados"><i class="glyphicon glyphicon-list"></i> Lista Empleados</a></li>
+                                <li><a href="#/newEmpleado"><i class="glyphicon glyphicon-plus"></i> añadir </a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-header"> <a href="#/listProductos" data-toggle="collapse" data-target="#productosMenu" ng-show="usuario.puesto==='administrador'">
+                                <h5>Productos <i class="glyphicon glyphicon-chevron-right"></i></h5>
+                            </a>
+                            <ul class="collapse" id="productosMenu" ng-show="usuario.puesto==='administrador'">
+                                <li class="active"> <a href="#/listProductos"><i class="glyphicon glyphicon-list"></i> Lista Productos</a></li>
+                                <li><a href="#/newProducto"><i class="glyphicon glyphicon-plus"></i> añadir </a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-header"> <a href="#/listServicios" ng-show="usuario.puesto==='administrador'" data-toggle="collapse" data-target="#serviciosMenu">
+                                <h5>Servicios <i class="glyphicon glyphicon-chevron-right"></i></h5>
+                            </a>
+                            <ul class="collapse" id="serviciosMenu" ng-show="usuario.puesto==='administrador'">
+                                <li class="active"> <a href="#/listServicios"><i class="glyphicon glyphicon-list"></i> Lista Servicios</a></li>
+                                <li><a href="#/newServicio"><i class="glyphicon glyphicon-plus"></i> añadir </a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-header"> <a href="#/listVentas" ng-show="usuario.puesto==='administrador'" data-toggle="collapse" data-target="#ventasMenu">
+                                <h5>Ventas <i class="glyphicon glyphicon-chevron-right"></i></h5>
+                            </a>
+                            <ul class="collapse" id="ventasMenu" ng-show="usuario.puesto==='administrador'" >
+                                <li class="active"> <a href="#/listVentas"><i class="glyphicon glyphicon-list"></i> Lista ventas</a></li>
+                                <li><a href="#/newVenta"><i class="glyphicon glyphicon-plus"></i> añadir </a></li>
+                            </ul>
+                        </li>
+                        
+                    </ul>
+                </div><!--/span-->
+
+                <div class="col-sm-9 col-md-10 main">
+                    <div ng-view></div>
+                    
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p class="pull-right">©2014 Company</p>
+        </footer>
+    </body>
+</html>

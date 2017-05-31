@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<h3 class="sub-header">Lista de Clientes</h3>
+<div class="input-group">
+    <span class="input-group-addon" ><span class="glyphicon glyphicon-align-left" aria-hidden="true"></span> Filtros </span>
+    <input class="form-control col-md-4" placeholder="buscar por nombre" ng-model="search.cliente.nombreCliente">
+    <input class="form-control col-md-4" placeholder="buscar por apellido" ng-model="search.cliente.apellidoCliente">
+</div>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>nombre</th>
+                <th>apellidos</th>
+                <th>direccion</th>
+                <th>fecha nacimiento</th>
+                <th>fecha alta</th>
+                <th>telefono</th>
+                <th>movil</th>
+                <th>dni</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="cliente in clientes | orderBy:'nombreCliente' | filter:search" ng-style="{color:($odd?'red':'green')}">
+                <td>{{cliente.cliente.nombreCliente}}</td>
+                <td>{{cliente.cliente.apellidoCliente}}</td>
+                <td>{{cliente.calle +', '+ cliente.numero  +', '+ cliente.piso +', '+  cliente.puerta}}</td>
+                <td>{{cliente.cliente.fechaNacimiento}}</td>
+                <td>{{cliente.cliente.fechaAltaCliente}}</td>
+                <td>{{cliente.cliente.telefonoCliente}}</td>
+                <td>{{cliente.cliente.movilCliente}}</td>
+                <td>{{cliente.cliente.dni}}</td>
+                <td>
+                    <button ng-click="borrar(cliente.cliente.idcliente)">Borrar</button>
+                    <button ><a ng-href="#/editCliente/{{cliente.cliente.idcliente}}">Editar</a></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

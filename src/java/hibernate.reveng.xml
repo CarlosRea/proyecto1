@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="peluqueria"/>
+  <table-filter match-name="linea_producto"/>
+  <table-filter match-name="servicio"/>
+  <table-filter match-name="cliente"/>
+  <table-filter match-name="perfil_cliente"/>
+  <table-filter match-name="producto_inventario"/>
+  <table-filter match-name="orden_producto"/>
+  <table-filter match-name="empleado"/>
+  <table-filter match-name="linea_producto_servicio"/>
+  <table-filter match-name="linea_servicio"/>
+  <table-filter match-name="orden_servicio"/>
+  <table-filter match-name="puestoempleado"/>
+  <table-filter match-name="categoria_producto"/>
+  <table-filter match-name="producto"/>
+  <table-filter match-name="empleados_ventas"/>
+  <table-filter match-name="direccion"/>
+</hibernate-reverse-engineering>

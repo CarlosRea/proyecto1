@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<form name="form" novalidate  class="form-horizontal" role="form">
+    <fieldset>
+        <legend>Producto</legend>
+        <div class="form-group">
+            <label for="nombre" class="col-sm-2 control-label">Nombre</label>
+            <div class="col-sm-10">
+                <input id="nif" name="nombre" type="text" placeholder="Nombre" ng-model="producto.nombreProducto" required/>
+                <span ng-show="form.nombre.$error.required && form.nombre.$dirty">El campo es requerido</span>
+            </div></div>
+        <div class="form-group">
+            <label for="codigo" class="col-sm-2 control-label">Codigo</label>
+            <div class="col-sm-10">
+                <input id="nombre" name="codigo" type="text" placeholder="codigo" ng-model="producto.barCodigo" required />
+                <span ng-show="form.codigo.$error.required && form.codigo.$dirty">El campo es requerido</span>
+            </div></div>
+        <div class="form-group">
+            <label for="capacidad" class="col-sm-2 control-label">Capacidad</label>
+            <div class="col-sm-10">
+                <input id="ape1" name="capacidad" type="text" placeholder="capacidad" ng-model="producto.capacidadProducto" required />
+                <span ng-show="form.capacidad.$error.required && form.capacidad.$dirty">El campo es requerido</span>
+            </div></div>
+        <div class="form-group">
+            <label for="precioCompra" class="col-sm-2 control-label">Precio Compra</label>
+            <div class="col-sm-10">
+                <input id="ape1" name="precioCompra" type="text" placeholder="precioCompra" ng-model="producto.precioCompra" required />
+                <span ng-show="form.precioCompra.$error.required && form.precioCompra.$dirty">El campo es requerido</span>
+            </div></div>
+        <div class="form-group">
+            <label for="precioVenta" class="col-sm-2 control-label">Precio Venta</label>
+            <div class="col-sm-10">
+                <input id="ape1" name="precioVenta" type="text" placeholder="precioVenta" ng-model="producto.precioVenta" required />
+                <span ng-show="form.precioVenta.$error.required && form.precioVenta.$dirty">El campo es requerido</span>
+            </div></div>
+        <div class="form-group">
+            <label for="precioServicio" class="col-sm-2 control-label">Precio Servicio</label>
+            <div class="col-sm-10">
+                <input id="ape1" name="precioServicio" type="text" placeholder="precioServicio" ng-model="producto.precioServicio" required />
+                <span ng-show="form.precioServicio.$error.required && form.precioServicio.$dirty">El campo es requerido</span>
+            </div></div>
+    </fieldset>
+    <fieldset>
+        <legend>Categoria</legend>
+        <div class="form-group">
+            <label for="categoria" class="col-sm-2 control-label">Nombre categoria</label>
+            <div class="col-sm-10">
+                <select name="categoria" data-ng-options="c.nombreCategoria as c.nombreCategoria for c in categoria" data-ng-model="producto.categoriaProducto.nombreCategoria"></select>
+            </div></div>
+    </fieldset> 
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button ng-click="guardar()" ng-disabled="form.$invalid">Guardar</button>
+        </div>
+    </div>
+
+</form>

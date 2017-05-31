@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<h3 class="sub-header">Lista de ordenes de servicio</h3>
+<div class="input-group">
+    <span class="input-group-addon" ><span class="glyphicon glyphicon-align-left" aria-hidden="true"></span> Filtros </span>
+    <input class="form-control col-md-4" placeholder="buscar por clientes" ng-model="search.clientes">
+    <input class="form-control col-md-4" placeholder="buscar por empleados" ng-model="search.empleados">
+</div>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>cliente </th>
+                <th>empleado</th>
+                <th>servicio</th>
+                <th>fecha</th>
+                <th>comision empleado</th>
+                <th>hora</th>
+                <th>facturado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="orden in ordenServicios | orderBy:'clientes' | filter:search" ng-style="{color:($odd?'red':'green')}">
+                <td>{{orden.clientes}}</td>
+                <td>{{orden.empleados}}</td>
+                <td>{{orden.lineaProducto}}</td>
+                <td>{{orden.fechaServicio}}</td>
+                <td>{{orden.comisionEmpleado}}</td>
+                <td>{{orden.horaServicio}}</td>
+                <td>{{orden.facturado}}</td>
+                <td>
+                    <button ng-click="borrar(orden.idfactura)">Borrar</button>
+                    <button ><a ng-href="#/editVentaProducto/{{orden.idfactura}}">Editar</a></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

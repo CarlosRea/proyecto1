@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<h3 class="sub-header">Lista de Empleados</h3>
+<div class="input-group">
+    <span class="input-group-addon" ><span class="glyphicon glyphicon-align-left" aria-hidden="true"></span> Filtros </span>
+    <input class="form-control col-md-4" placeholder="buscar por nombre" ng-model="search.empleado.nombreEmpleado">
+    <input class="form-control col-md-4" placeholder="buscar por apellido" ng-model="search.empleado.apellidoEmpleado">
+</div>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Dni</th>
+                <th>nombre</th>
+                <th>apellidos</th>
+                <th>direccion</th>
+                <th>fecha nacimiento</th>
+                <th>fecha alta</th>
+                <th>telefono</th>
+                <th>movil</th>
+                <th>comision</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="empleado in empleados | orderBy:'nombreCliente' | filter:search" ng-style="{color:($odd?'red':'green')}">
+                <td>{{empleado.empleado.dni}}</td>
+                <td>{{empleado.empleado.nombreEmpleado}}</td>
+                <td>{{empleado.empleado.apellidoEmpleado}}</td>
+                <td>{{empleado.calle +', '+ empleado.numero  +', '+ empleado.piso +', '+  empleado.puerta}}</td>
+                <td>{{empleado.empleado.fechaNacimiento}}</td>
+                <td>{{empleado.empleado.fechaAltaEmpleado}}</td>
+                <td>{{empleado.empleado.telefonoEmpleado}}</td>
+                <td>{{empleado.empleado.movilEmpleado}}</td>
+                <td>{{empleado.empleado.comisionPorcentaje}}</td>
+                <td>
+                    <button ng-click="borrar(empleado.empleado.idempleado)">Borrar</button>
+                    <button ><a ng-href="#/editEmpleado/{{empleado.empleado.idempleado}}">Editar</a></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

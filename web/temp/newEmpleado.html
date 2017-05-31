@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<form name="form" novalidate  class="form-horizontal" role="form">
+    <fieldset>
+        <legend>Empleado</legend>
+        <div class="form-group">
+            <label for="nif" class="col-sm-2 control-label">NIF</label>
+            <div class="col-sm-10">
+                <input id="nif" name="nif" type="text" placeholder="NIF" ng-model="empleado.dni" required/>
+                <span ng-show="form.nif.$error.required && form.nif.$dirty">El campo es requerido</span>
+            </div></div>
+        <div class="form-group">
+            <label for="nombre" class="col-sm-2 control-label">Nombre</label>
+            <div class="col-sm-10">
+                <input id="nombre" name="nombre" type="text" placeholder="Nombre" ng-model="empleado.nombreEmpleado" required />
+                <span ng-show="form.nombre.$error.required && form.nombre.$dirty">El campo es requerido</span>
+            </div></div>
+        <div class="form-group">
+            <label for="ape1" class="col-sm-2 control-label">Apellidos</label>
+            <div class="col-sm-10">
+                <input id="ape1" name="ape1" type="text" placeholder="apellidos" ng-model="empleado.apellidoEmpleado" required />
+                <span ng-show="form.ape1.$error.required && form.ape1.$dirty">El campo es requerido</span>
+            </div></div>
+        <div class="form-group">
+            <label for="sexo" class="col-sm-2 control-label">Sexo</label>
+            <div class="col-sm-10">
+                <select id="sexo" name="sexo" data-ng-options="s.codSexo as s.descripcion for s in sex" data-ng-model="empleado.sexo"></select>
+            </div></div>
+        <div class="form-group">
+            <label for="edad" class="col-sm-2 control-label">Fecha de nacimiento</label>
+            <div class="col-sm-10">
+                <input id="edad" name="edad" type="date" ng-model="empleado.fechaNacimiento" required />
+                <span ng-show="form.edad.$error.required && form.edad.$dirty">El campo es requerido</span> 
+            </div></div>
+        <div class="form-group">
+            <label for="fechaAlta" class="col-sm-2 control-label">Fecha de alta</label>
+            <div class="col-sm-10">
+                <input id="fechaAlta" name="fechaAlta" type="date" ng-model="empleado.fechaAltaEmpleado" />
+            </div></div>
+        <div class="form-group">
+            <label for="telefono" class="col-sm-2 control-label">Telefono</label>
+            <div class="col-sm-10">
+                <input id="telefono" name="telefono" type="number" maxlength="9" placeholder="Telefono" ng-model="empleado.telefonoEmpleado" />
+            </div></div>
+        <div class="form-group">
+            <label for="movil" class="col-sm-2 control-label">Movil</label>
+            <div class="col-sm-10">
+                <input id="movil" name="movil" type="number" maxlength="9" placeholder="Movil" ng-model="empleado.movilEmpleado" />
+            </div></div>
+        <div class="form-group">
+            <label for="comision" class="col-sm-2 control-label">Comision </label>
+            <div class="col-sm-10">
+                <input id="comision" name="comision" type="number" maxlength="9" placeholder="comision" ng-model="empleado.comisionPorcentaje" />
+            </div></div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Direccion</legend>
+        <div class="form-group">
+            <label for="localidad" class="col-sm-2 control-label">Localidad</label>
+            <div class="col-sm-10">
+                <input id="localidad" name="localidad" type="text" placeholder="Localidad" ng-model="empleado.direccion.localidad" />
+            </div></div>
+        <div class="form-group">
+            <label for="codigo" class="col-sm-2 control-label">postal</label>
+            <div class="col-sm-10">
+                <input id="codigo" name="codigo" type="number" placeholder="Codigo postal" maxlength="6" ng-model="empleado.direccion.codigoPostal" />
+            </div></div>
+        <div class="form-group">
+            <label for="calle" class="col-sm-2 control-label">Calle</label>
+            <div class="col-sm-10">
+                <input id="calle" name="calle" type="text" placeholder="Calle" ng-model="empleado.direccion.calle" />
+            </div></div>
+        <div class="form-group">
+            <label for="numero" class="col-sm-2 control-label">Numero</label>
+            <div class="col-sm-10">
+                <input id="numero" name="numero" type="number" placeholder="Numero" ng-model="empleado.direccion.numero" />
+            </div></div>
+        <div class="form-group">
+            <label for="piso" class="col-sm-2 control-label">Piso</label>
+            <div class="col-sm-10">
+                <input id="piso" name="piso" type="number" placeholder="Piso" ng-model="empleado.direccion.piso" />
+            </div></div>
+        <div class="form-group">
+            <label for="puerta" class="col-sm-2 control-label">Puerta</label>
+            <div class="col-sm-10">
+                <input id="puerta" name="puerta" type="number" placeholder="Puerta" ng-model="empleado.direccion.puerta" />
+            </div></div>
+    </fieldset>      
+    <fieldset>
+        <legend>Puesto</legend>
+        <div class="form-group">
+            <label for="puesto" class="col-sm-2 control-label">Nombre puesto</label>
+            <div class="col-sm-10">
+                <select id="puesto" name="puesto" data-ng-options="p.nombrePuesto as p.nombrePuesto for p in puesto" data-ng-model="empleado.puestoempleado.nombrePuesto"></select>
+            </div></div>
+    </fieldset> 
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button ng-click="guardar()" ng-disabled="form.$invalid">Guardar</button>
+        </div>
+    </div>
+
+</form>

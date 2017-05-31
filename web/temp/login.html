@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<div class="container" >
+
+  <form class="form-signin col-sm-6" name="loginForm" role="form" data-toggle="validator" >
+    <h3 class="form-signin-heading">Login </h3>
+    <div class="form-group">
+    <input type="text" class="form-control" placeholder="Usuario" autofocus ng-model="usuario.nombre" required>
+    </div>
+    <div class="form-group">
+    <input type="password" class="form-control" placeholder="Clave" ng-model="usuario.clave" required>
+    </div>
+    <div class="form-group">
+        <label class="checkbox">
+      <input type="checkbox" value="remember-me"> Recordar clave?
+    </label>
+    </div>
+    <div class="form-group col-sm-4">
+        <button class="btn btn-primary btn-block" type="submit" ng-click="iniciarSesion()" ng-disabled="!loginForm.$valid">Iniciar sesion</button>
+    </div>
+  </form>
+
+</div> <!-- /container -->
+

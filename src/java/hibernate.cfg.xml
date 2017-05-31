@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/peluqueria?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">productos</property>
+    <property name="hibernate.connection.password">clave</property>
+    <property name="hibernate.show_sql">true</property>
+    <mapping class="model.pojo.OrdenProducto"/>
+    <mapping class="model.pojo.PerfilCliente"/>
+    <mapping class="model.pojo.LineaServicio"/>
+    <mapping class="model.pojo.Cliente"/>
+    <mapping class="model.pojo.CategoriaProducto"/>
+    <mapping class="model.pojo.LineaProductoServicio"/>
+    <mapping class="model.pojo.LineaProducto"/>
+    <mapping class="model.pojo.ProductoInventario"/>
+    <mapping class="model.pojo.EmpleadosVentas"/>
+    <mapping class="model.pojo.Producto"/>
+    <mapping class="model.pojo.OrdenServicio"/>
+    <mapping class="model.pojo.Direccion"/>
+    <mapping class="model.pojo.Servicio"/>
+    <mapping class="model.pojo.Puestoempleado"/>
+    <mapping class="model.pojo.Empleado"/>
+  </session-factory>
+</hibernate-configuration>
